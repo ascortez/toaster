@@ -1,15 +1,15 @@
 //
-//  MasterToasterTests.swift
-//  MasterToasterTests
+//  ToasterTests.swift
+//  ToasterTests
 //
 //  Created by Ash Cortez on 2/12/19.
 //  Copyright © 2019 Turby_Turby. All rights reserved.
 //
 
 import XCTest
-@testable import MasterToaster
+@testable import Toaster
 
-class MasterToasterTests: XCTestCase {
+class ToasterTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

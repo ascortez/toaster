@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  MasterToaster
+//  Toaster
 //
 //  Created by Ash Cortez on 2/12/19.
 //  Copyright © 2019 Turby_Turby. All rights reserved.
