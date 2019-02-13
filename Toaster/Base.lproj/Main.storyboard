@@ -21,6 +21,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2c2-M1-XB3">
                                 <rect key="frame" x="141" y="318" width="93" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" hint="Takes you to your phone's media library for video selection." label="Upload Video"/>
                                 <state key="normal" title="Upload Video"/>
                             </button>
                         </subviews>
