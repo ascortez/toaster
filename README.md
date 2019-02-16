@@ -5,7 +5,7 @@ This application is designed to demo various Azure and Microsoft services, inclu
 Beta version release date tbd
 
 
-## features in Queue:
+## features in queue:
 
 video uploading ✅
 in-app transcripting in English
