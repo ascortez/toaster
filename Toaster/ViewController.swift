@@ -26,6 +26,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             showImagePicker(sourceType: UIImagePickerController.SourceType.photoLibrary)
         } else if sender.title(for: .normal) == "Create New Video" {
             showImagePickerForCamera()
+        } else if sender.title(for: .normal) == "Crash the App" {
+            forceCrash()
         }
     }
     
@@ -92,7 +94,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         })
     }
 
-    // MARK: - UIImagePickerControllerDelegate
+// MARK: - UIImagePickerControllerDelegate
     
     private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
 
@@ -104,5 +106,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // Done cancel dismiss of image picker.
         })
     }
+    
+    // MARK: - Crash code for demos
+    fileprivate func forceCrash() {
+        assertionFailure("You have forced this crash")
+    }
 }
+
+
 
