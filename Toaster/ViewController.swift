@@ -9,15 +9,21 @@
 import UIKit
 import AVFoundation
 import MobileCoreServices
+import AppCenter
+import AppCenterCrashes
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MSCrashesDelegate {
     
     var imagePickerController = UIImagePickerController()
+    var crashesEnabled = MSCrashes.isEnabled()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupImagePicker()
+        if (crashesEnabled) {
+            setupMSCrashes()
+        }
     }
     
     
@@ -93,6 +99,42 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             // Done presenting.
         })
     }
+    
+// MARK: - Crash code for demos
+    
+    func forceCrash() {
+        MSCrashes.generateTestCrash()
+    }
+    
+    func setupMSCrashes() {
+        MSCrashes.setDelegate(self)
+        
+        MSCrashes.setUserConfirmationHandler({ (errorReports: [MSErrorReport]) in
+            
+            // Your code to present your UI to the user, e.g. an UIAlertController.
+            let alertController = UIAlertController(title: "Sorry about that!",
+                                                    message: "Do you want to send an anonymous crash report so we can fix the issue?",
+                                                    preferredStyle:.alert)
+            
+            alertController.addAction(UIAlertAction(title: "Don't send", style: .cancel) {_ in
+                MSCrashes.notify(with: .dontSend)
+            })
+            
+            alertController.addAction(UIAlertAction(title: "Send", style: .default) {_ in
+                MSCrashes.notify(with: .send)
+            })
+            
+            alertController.addAction(UIAlertAction(title: "Always send", style: .default) {_ in
+                MSCrashes.notify(with: .always)
+            })
+            
+            // Show the alert controller.
+            self.present(alertController, animated: true)
+            return true // Return true if the SDK should await user confirmation, otherwise return false.
+        })
+        if (MSCrashes.hasCrashedInLastSession()){
+        }
+    }
 
 // MARK: - UIImagePickerControllerDelegate
     
@@ -107,10 +149,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         })
     }
     
-    // MARK: - Crash code for demos
-    fileprivate func forceCrash() {
-        assertionFailure("You have forced this crash")
+
+// MARK: - MSCrashesDelegate
+
+    
+    func crashes(_ crashes: MSCrashes!, shouldProcessErrorReport errorReport: MSErrorReport!) -> Bool {
+        return true; // return true if the crash report should be processed, otherwise false.
     }
+    
 }
 
 

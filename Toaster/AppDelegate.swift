@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import AppCenter
+import AppCenterCrashes
+import AppCenterDistribute
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        //App Center Distribute will pop up it's UI/browser at application start. While this is an expected behavior for your end users, it could be disruptive for you during the development stage of your application.
+        #if DEBUG
+        MSAppCenter.start(appSecret, withServices: [MSCrashes.self])
+        #else
+        MSAppCenter.start(appSecret, withServices: [MSCrashes.self, MSDistribute.self])
+        #endif
+        
         return true
     }
 
