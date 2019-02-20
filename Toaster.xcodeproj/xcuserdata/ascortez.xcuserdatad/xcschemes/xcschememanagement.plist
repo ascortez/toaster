@@ -4,10 +4,33 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Toaster 2.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>Toaster.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B3CBF60A22135F9000B78AB6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B3CBF61E22135F9100B78AB6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B3CBF62922135F9100B78AB6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
