@@ -104,9 +104,8 @@
 				B3CBF61722135F9000B78AB6 /* LaunchScreen.storyboard */,
 				B3CBF61A22135F9000B78AB6 /* Info.plist */,
 			);
-			name = Toaster;
-			path = /Users/ascortez/Projects/Toaster/Toaster;
-			sourceTree = "<absolute>";
+			path = Toaster;
+			sourceTree = "<group>";
 		};
 		B3CBF62222135F9100B78AB6 /* ToasterTests */ = {
 			isa = PBXGroup;
